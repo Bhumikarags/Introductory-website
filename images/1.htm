@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Quiz Application with Progress Bar Using HTML, CSS, & Vue.js</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Learn how to make a Simple Quiz Application with Progress Bar Using HTML, CSS, and Vue.js">
+	<meta name="keywords" content="vue.js, vue.js tutorial, vue.js devtools, vue.js examples, vue.js framework, vue.js quiz, vue.js quiz application, Quiz Application with Progress Bar"/>
+	<meta name="author" content="ByteWebster" />
+    <meta name="url" content="https://bytewebster.com/javascriptprojects/quiz-application-using-html-css-and-vue-js" />
+    <meta name="copyright" content="ByteWebster" />
+    <meta property="og:site_name" content="ByteWebster" />
+    <meta property="og:url" content="https://bytewebster.com/javascriptprojects/quiz-application-using-html-css-and-vue-js" />
+    <meta property="og:title" content="Quiz Application with Progress Bar Using HTML, CSS, & Vue.js - ByteWebster" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://www.bytewebster.com/javascriptprojects/uploads/images/quiz-application-using-html-css-and-vue-js-1.png" />
+    <meta property="og:description" content="Learn how to make a Simple Quiz Application with Progress Bar Using HTML, CSS, and Vue.js" />
+    <meta name="robots" content="index, follow">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@bytewebster" />
+    <meta name="twitter:title" content="Quiz Application with Progress Bar Using HTML, CSS, & Vue.js - ByteWebster" />
+    <meta name="twitter:description" content="Learn how to make a Simple Quiz Application with Progress Bar Using HTML, CSS, and Vue.js" />
+    <meta name="twitter:image" content="https://www.bytewebster.com/javascriptprojects/uploads/images/quiz-application-using-html-css-and-vue-js-1.png" />
+    <meta name="twitter:image:alt" content="Vue.js Quiz Application with Progress Bar" />
+	<link rel="stylesheet" href="css/quiz.css">
+    <link rel="stylesheet" href="css/btn.css">
+    <link rel="stylesheet" href="css/newdownbtn.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/telebtn.css">
+    <link rel="stylesheet" href="css/play-and-win-btn.css">
+    <link rel="icon" href="https://www.bytewebster.com/img/logo.png">
+    <script src="quiz.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9634176020184452"
+     crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=62bbfbff73f6920012646e31&product=sticky-share-buttons" async="async"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+	<!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-41E8818LLV"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+  gtag('config', 'G-41E8818LLV');
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics end-->	
+</head>
+<style>
+.hljs{
+    width: 100%;
+    height: 490px;
+    font-size: 16px;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+p{
+    color: #6c757d;
+}
+section.mt-5{
+    margin-top: 6rem !important;
+}
+</style>
+<body>
+     <nav class="navbar navbar-expand-lg navbar-light border-bottom border-dark bg-light fixed-top">
+        <div class="container">
+          <a class="navbar-brand text-success" href="https://www.bytewebster.com"><span class="text-primary">BYTE</span>WEBSTER</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
+             <li class="nav-item">
+                <a href="https://www.bytewebster.com/register-here" style="
+                           cursor: pointer;
+                           border: 1px solid black;
+                           height: 40px;
+                           position: relative;
+                           border-radius: 3px;
+                           background: #1877f2;
+                           top: 0.1px;
+                           width: 95px;
+                           color: white;
+                           font-size: 1em;
+                           box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+                       " class="btn" target="_blank">JOIN US</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.bytewebster.com">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.bytewebster.com/about-us">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.bytewebster.com/front-endprojects">Others</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://bytewebster.com/our-services">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.bytewebster.com/bytewebsterprivacypolicy">Privacy Policy</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.bytewebster.com/contact-us">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>      <br>
+      <br>
+      <br>
+      <br>
+      <section id="mainsection">
+          <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/62b5a7b77b967b117996547d/1g6ape9u5';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+          <div class="sharethis-sticky-share-buttons"></div>          
+          <div class="container">
+              <div class="row">
+                 <div class="col-sm-12">
+                     <h1 class="headf">Simple Quiz Application with Progress Bar Using HTML, CSS, and Vue.js</h1>
+                     <p>By <span><a href="/" style="text-decoration:none;" class="text-success">Bytewebster</a></span> - <i class="bi bi-calendar4-event"></i> August 3, 2023</p>
+                     <div style="border-top: 4px solid purple"></div>
+                 </div>
+                 <div class="col-sm-6 mx-auto">
+                     <br>
+                     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                       <div class="carousel-indicators">
+                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                       </div>
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                              <img src="https://www.bytewebster.com/javascriptprojects/uploads/images/quiz-application-using-html-css-and-vue-js.png"
+                              style="object-fit: contain;"
+                              width="100%"
+                              height="360"
+                              class="img-thumbnail rounded"
+                              alt="Quiz Application with Progress Bar Using HTML, CSS, and Vue.js"
+                              title="Quiz Application with Progress Bar Using HTML, CSS, and Vue.js"
+                              loading="lazy">
+                          </div>
+                          <div class="carousel-item">
+                              <img src="https://www.bytewebster.com/javascriptprojects/uploads/images/quiz-application-using-html-css-and-vue-js-1.png"
+                              style="object-fit: contain;"
+                              width="100%"
+                              height="360"
+                              class="img-thumbnail rounded"
+                              alt="Vue.js Quiz Application with Progress Bar"
+                              title="Vue.js Quiz Application with Progress Bar"
+                              loading="lazy">
+                          </div>
+                        </div>
+                          <!-- images end-->
+                          <!-- next or previous button start-->
+                          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                          </button>
+                          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                          </button>
+                      </div>
+                 </div>
+                 <div class="col-sm-6">
+                     <p class="fs-5">
+                        <br>
+                        Welcome to Bytewebster JavaScript projects on creating a Simple Quiz Application with Progress Bar Using HTML, CSS, and Vue.js.
+                        Before this, we had a similar quiz app on our website, which was built using plain JavaScript.
+                        However, in this version, we have used Vue.js to enhance both the user interface and experience.
+                     </p>
+                     <h2 class="text-success">Working</h2>
+                     <p class="fs-5">
+                        This Vue.js quiz app will have many questions, and each question will have four options to choose from.
+                        You can customize the number of options if you want.
+                        In the app, you'll find two buttons: "Back" and "Skip." You can use these buttons to go back to the previous question
+                        or skip the current one
+                     </p>
+                 </div>
+                 <pre>
+                     
+                 </pre>
+                     <div class="col-sm-12 mb-5">
+   <div class="container d-flex align-items-center justify-content-center mb-5">
+     <a href="#downloadbtn" class="button-86 text-decoration-none text-light" role="button"><i class="bi bi-download"></i>&nbspDirect Download</a> 
+   </div>
+</div>                 <div class="col-sm-12">
+                     <br>
+                     <p class="fs-5">
+                        and come back to it later to change your answer. also there will be a progress bar at the top of the app that shows you how much of the quiz you've completed.
+                     </p>
+                     <p class="fs-5">
+                         Once you finish the quiz, your score will be automatically calculated, showing you the number of correct answers out of the total questions attempted.
+                     </p>
+                     <div style="border-top: 3px solid purple;"></div>
+                     <br>
+                     <h2 style="font-family: arial;"><i class="bi bi-filetype-html"></i> HTML Structure</h2>
+                     <br>
+                     
+                     <p class="fs-5">
+                        If you're not familiar with Vue.js and find the quiz app's structure a bit complicated, don't worry. We'll do our best to explain it in an easy and understandable way so let's get started.
+                     </p>
+                     
+                     <p class="fs-5">
+                        The HTML code of this quiz application is wrapped inside a section element with a class of container, basically it is a container for the quiz app.
+                        And the quiz app is defined by a Vue object with the ID "app."
+                     </p>
+                     
+                     <p class="fs-5">
+                         There is a transition element which is used to add animation effects when questions are displayed and hidden.
+                         also there are two main attributes the first one is enter-active-class and the second one is leave-active-class.
+                         They specify the CSS classes to be applied during the animation.
+                     </p>
+                     
+                     <br>
+                     <div class="col-sm-9">
+                         <pre class="hljs rounded" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(35, 36, 31); color: rgb(248, 248, 242);"><span class="xml"><span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;<span class="hljs-name" style="color: rgb(249, 38, 114);">section</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">class</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"container"</span>&gt;</span>
+    <span class="hljs-comment" style="color: rgb(117, 113, 94);">&lt;!--questionBox--&gt;</span>
+    <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;<span class="hljs-name" style="color: rgb(249, 38, 114);">div</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">class</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"questionBox"</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">id</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"app"</span>&gt;</span>
+        <span class="hljs-comment" style="color: rgb(117, 113, 94);">&lt;!-- transition --&gt;</span>
+        <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;<span class="hljs-name" style="color: rgb(249, 38, 114);">transition</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">:duration</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"</span></span></span><span class="hljs-template-variable" style="color: rgb(230, 219, 116);">{ enter: 500, leave: 300 }</span><span class="xml"><span class="hljs-tag" style="color: rgb(248, 248, 242);"><span class="hljs-string" style="color: rgb(230, 219, 116);">"</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">enter-active-class</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"animated zoomIn"</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">leave-active-class</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"animated zoomOut"</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">mode</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"out-in"</span>&gt;</span>
+            <span class="hljs-comment" style="color: rgb(117, 113, 94);">&lt;!--qusetionContainer--&gt;</span>
+            <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;<span class="hljs-name" style="color: rgb(249, 38, 114);">div</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">class</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"questionContainer"</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">v-if</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"questionIndex&lt;quiz.questions.length"</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">v-bind:key</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"questionIndex"</span>&gt;</span>
+                <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;<span class="hljs-name" style="color: rgb(249, 38, 114);">header</span>&gt;</span>
+                    <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;<span class="hljs-name" style="color: rgb(249, 38, 114);">h1</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">class</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"title is-6"</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">style</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"font-family: arial;"</span>&gt;</span>Vue.js Quiz<span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;/<span class="hljs-name" style="color: rgb(249, 38, 114);">h1</span>&gt;</span>
+                    <span class="hljs-comment" style="color: rgb(117, 113, 94);">&lt;!--progress--&gt;</span>
+                    <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;<span class="hljs-name" style="color: rgb(249, 38, 114);">div</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">class</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"progressContainer"</span>&gt;</span>
+                        <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;<span class="hljs-name" style="color: rgb(249, 38, 114);">progress</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">class</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"progress is-info is-small"</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">:value</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"(questionIndex/quiz.questions.length)*100"</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">max</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"100"</span>&gt;</span></span><span class="hljs-template-variable" style="color: rgb(230, 219, 116);">{{(questionIndex/quiz.questions.length)*100}</span><span class="xml">}%<span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;/<span class="hljs-name" style="color: rgb(249, 38, 114);">progress</span>&gt;</span>
+                        <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;<span class="hljs-name" style="color: rgb(249, 38, 114);">p</span>&gt;</span></span><span class="hljs-template-variable" style="color: rgb(230, 219, 116);">{{(questionIndex/quiz.questions.length)*100}</span><span class="xml">}% complete<span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;/<span class="hljs-name" style="color: rgb(249, 38, 114);">p</span>&gt;</span>
+                    <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;/<span class="hljs-name" style="color: rgb(249, 38, 114);">div</span>&gt;</span>
+                    <span class="hljs-comment" style="color: rgb(117, 113, 94);">&lt;!--/progress--&gt;</span>
+                <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;/<span class="hljs-name" style="color: rgb(249, 38, 114);">header</span>&gt;</span>
+
+                <span class="hljs-comment" style="color: rgb(117, 113, 94);">&lt;!-- questionTitle --&gt;</span>
+                <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;<span class="hljs-name" style="color: rgb(249, 38, 114);">h2</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">class</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"titleContainer title"</span>&gt;</span>Q. </span><span class="hljs-template-variable" style="color: rgb(230, 219, 116);">{{ quiz.questions[questionIndex].text }</span><span class="xml">}<span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;/<span class="hljs-name" style="color: rgb(249, 38, 114);">h2</span>&gt;</span>
+
+                <span class="hljs-comment" style="color: rgb(117, 113, 94);">&lt;!-- quizOptions --&gt;</span>
+                <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;<span class="hljs-name" style="color: rgb(249, 38, 114);">div</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">class</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"optionContainer"</span>&gt;</span>
+                    <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;<span class="hljs-name" style="color: rgb(249, 38, 114);">div</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">class</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"option"</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">v-for</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"(response, index) in quiz.questions[questionIndex].responses"</span> @<span class="hljs-attr" style="color: rgb(249, 38, 114);">click</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"selectOption(index)"</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">:class</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"</span></span></span><span class="hljs-template-variable" style="color: rgb(230, 219, 116);">{ 'is-selected': userResponses[questionIndex] == index}</span><span class="xml"><span class="hljs-tag" style="color: rgb(248, 248, 242);"><span class="hljs-string" style="color: rgb(230, 219, 116);">"</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">:key</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"index"</span>&gt;</span>
+                        </span><span class="hljs-template-variable" style="color: rgb(230, 219, 116);">{{ index | charIndex }</span><span class="xml">}. </span><span class="hljs-template-variable" style="color: rgb(230, 219, 116);">{{ response.text }</span><span class="xml">}
+                    <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;/<span class="hljs-name" style="color: rgb(249, 38, 114);">div</span>&gt;</span>
+                <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;/<span class="hljs-name" style="color: rgb(249, 38, 114);">div</span>&gt;</span>
+
+                <span class="hljs-comment" style="color: rgb(117, 113, 94);">&lt;!--quizFooter: navigation and progress--&gt;</span>
+                <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;<span class="hljs-name" style="color: rgb(249, 38, 114);">footer</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">class</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"questionFooter"</span>&gt;</span>
+                    <span class="hljs-comment" style="color: rgb(117, 113, 94);">&lt;!--pagination--&gt;</span>
+                    <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;<span class="hljs-name" style="color: rgb(249, 38, 114);">nav</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">class</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"pagination"</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">role</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"navigation"</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">aria-label</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"pagination"</span>&gt;</span>
+                        <span class="hljs-comment" style="color: rgb(117, 113, 94);">&lt;!-- back button --&gt;</span>
+                        <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;<span class="hljs-name" style="color: rgb(249, 38, 114);">a</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">class</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"button"</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">v-on:click</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"prev();"</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">:disabled</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"questionIndex &lt; 1"</span>&gt;</span> <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;<span class="hljs-name" style="color: rgb(249, 38, 114);">i</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">class</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"bx bx-arrow-back"</span>&gt;</span><span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;/<span class="hljs-name" style="color: rgb(249, 38, 114);">i</span>&gt;</span> Back <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;/<span class="hljs-name" style="color: rgb(249, 38, 114);">a</span>&gt;</span>
+
+                        <span class="hljs-comment" style="color: rgb(117, 113, 94);">&lt;!-- next button --&gt;</span>
+                        <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;<span class="hljs-name" style="color: rgb(249, 38, 114);">a</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">class</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"button"</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">:class</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"(userResponses[questionIndex]==null)?'':'is-active'"</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">v-on:click</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"next();"</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">:disabled</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"questionIndex&gt;=quiz.questions.length"</span>&gt;</span>
+                            <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;<span class="hljs-name" style="color: rgb(249, 38, 114);">i</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">class</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"bx bx-skip-next"</span>&gt;</span><span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;/<span class="hljs-name" style="color: rgb(249, 38, 114);">i</span>&gt;</span> </span><span class="hljs-template-variable" style="color: rgb(230, 219, 116);">{{ (userResponses[questionIndex]==null)?'Skip':'Next' }</span><span class="xml">}
+                        <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;/<span class="hljs-name" style="color: rgb(249, 38, 114);">a</span>&gt;</span>
+                    <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;/<span class="hljs-name" style="color: rgb(249, 38, 114);">nav</span>&gt;</span>
+                    <span class="hljs-comment" style="color: rgb(117, 113, 94);">&lt;!--/pagination--&gt;</span>
+                <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;/<span class="hljs-name" style="color: rgb(249, 38, 114);">footer</span>&gt;</span>
+                <span class="hljs-comment" style="color: rgb(117, 113, 94);">&lt;!--/quizFooter--&gt;</span>
+            <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;/<span class="hljs-name" style="color: rgb(249, 38, 114);">div</span>&gt;</span>
+            <span class="hljs-comment" style="color: rgb(117, 113, 94);">&lt;!--/questionContainer--&gt;</span>
+
+            <span class="hljs-comment" style="color: rgb(117, 113, 94);">&lt;!--quizCompletedResult--&gt;</span>
+            <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;<span class="hljs-name" style="color: rgb(249, 38, 114);">div</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">v-if</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"questionIndex &gt;= quiz.questions.length"</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">v-bind:key</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"questionIndex"</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">class</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"quizCompleted has-text-centered"</span>&gt;</span>
+                <span class="hljs-comment" style="color: rgb(117, 113, 94);">&lt;!-- quizCompletedIcon: Achievement Icon --&gt;</span>
+                <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;<span class="hljs-name" style="color: rgb(249, 38, 114);">span</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">class</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"icon"</span>&gt;</span>
+                    <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;<span class="hljs-name" style="color: rgb(249, 38, 114);">i</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">class</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"fa"</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">:class</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"score()&gt;3?'fa-check-circle-o is-active':'fa-times-circle'"</span>&gt;</span><span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;/<span class="hljs-name" style="color: rgb(249, 38, 114);">i</span>&gt;</span>
+                <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;/<span class="hljs-name" style="color: rgb(249, 38, 114);">span</span>&gt;</span>
+
+                <span class="hljs-comment" style="color: rgb(117, 113, 94);">&lt;!--resultTitleBlock--&gt;</span>
+                <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;<span class="hljs-name" style="color: rgb(249, 38, 114);">h2</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">class</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"title"</span>&gt;</span>
+                    You did </span><span class="hljs-template-variable" style="color: rgb(230, 219, 116);">{{ (score()&gt;7?'an amazing':(score()&lt;4?'a poor':'a good')) }</span><span class="xml">} job!
+                <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;/<span class="hljs-name" style="color: rgb(249, 38, 114);">h2</span>&gt;</span>
+                <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;<span class="hljs-name" style="color: rgb(249, 38, 114);">p</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">class</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"subtitle"</span>&gt;</span>
+                    Total score: </span><span class="hljs-template-variable" style="color: rgb(230, 219, 116);">{{ score() }</span><span class="xml">} / </span><span class="hljs-template-variable" style="color: rgb(230, 219, 116);">{{ quiz.questions.length }</span><span class="xml">}
+                <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;/<span class="hljs-name" style="color: rgb(249, 38, 114);">p</span>&gt;</span>
+                <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;<span class="hljs-name" style="color: rgb(249, 38, 114);">br</span> /&gt;</span>
+                <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;<span class="hljs-name" style="color: rgb(249, 38, 114);">a</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">class</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"button"</span> @<span class="hljs-attr" style="color: rgb(249, 38, 114);">click</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"restart()"</span>&gt;</span>restart <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;<span class="hljs-name" style="color: rgb(249, 38, 114);">i</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">class</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"fa fa-refresh"</span>&gt;</span><span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;/<span class="hljs-name" style="color: rgb(249, 38, 114);">i</span>&gt;</span><span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;/<span class="hljs-name" style="color: rgb(249, 38, 114);">a</span>&gt;</span>
+                <span class="hljs-comment" style="color: rgb(117, 113, 94);">&lt;!--/resultTitleBlock--&gt;</span>
+            <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;/<span class="hljs-name" style="color: rgb(249, 38, 114);">div</span>&gt;</span>
+            <span class="hljs-comment" style="color: rgb(117, 113, 94);">&lt;!--/quizCompetedResult--&gt;</span>
+        <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;/<span class="hljs-name" style="color: rgb(249, 38, 114);">transition</span>&gt;</span>
+    <span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;/<span class="hljs-name" style="color: rgb(249, 38, 114);">div</span>&gt;</span>
+    <span class="hljs-comment" style="color: rgb(117, 113, 94);">&lt;!--/questionBox--&gt;</span>
+<span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;/<span class="hljs-name" style="color: rgb(249, 38, 114);">section</span>&gt;</span></span></pre>                     </div>
+                     
+                     <br>
+                     
+                     <p class="fs-5">
+                         Next, The questionContainer element is used to display the questions and options to the user.
+                         It uses v-if directive to show only if the current questionIndex is less than the total number of questions in the quiz.
+                     </p>
+                     
+                     <p class="fs-5">
+                         The header section displays the title of the quiz and a progress bar showing the completion percentage of the quiz.
+                         and the footer section contains two navigation buttons first one is Back button which is disabled when the user is on the first question,
+                         and a Next button, which is disabled when the user is on the last question or if they haven't selected an option for the current question.
+                     </p>
+                     
+                     <br>
+                     
+                     <h2 style="font-family: arial;"><i class="bi bi-filetype-css"></i> Styling With CSS</h2>
+                     <br>
+                     
+                     <p class="fs-5">
+                         We are now moving towards the CSS part to give this quiz app a better look. So far,
+                         only the structure of this quiz app has been prepared.
+                         There is still a lot of work left, but for now, let's understand its designing.
+                     </p>
+                     
+                     <p class="fs-5">
+                        The CSS code of this vue.js quiz application starts by defining font styles for .title and .subtitle.
+                        These styles are applied to the title and subtitle texts of the quiz.
+                        Next, after this code we have a class called .animated this class is used to create smooth transition effects.
+                     </p>
+                     
+                     <p class="fs-5">
+                         After that the .container class sets the margins of the quiz container to create some space.
+                         also there is the styling for questionBox class, It sets the width and height of the box and gives it a nice background color.
+                     </p>
+                     
+                     <br>
+                     <div class="col-sm-9">
+                         <pre class="hljs rounded" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(35, 36, 31); color: rgb(248, 248, 242);">@<span class="hljs-keyword" style="color: rgb(249, 38, 114);">import</span> url(<span class="hljs-string" style="color: rgb(230, 219, 116);">"https://fonts.googleapis.com/css?family=Montserrat:400,400i,700"</span>);
+@<span class="hljs-keyword" style="color: rgb(249, 38, 114);">import</span> url(<span class="hljs-string" style="color: rgb(230, 219, 116);">"https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700"</span>);
+<span class="hljs-selector-tag" style="color: rgb(249, 38, 114);">body</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">font-family</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Open Sans"</span>, sans-serif;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">font-size</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">14px</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">height</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">100vh</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">background</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">#CFD8DC</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">cursor</span>: default <span class="hljs-meta" style="color: rgb(117, 113, 94);">!important</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">-webkit-user-select</span>: none;
+     <span class="hljs-attribute" style="color: rgb(102, 217, 239);">-moz-user-select</span>: none;
+      <span class="hljs-attribute" style="color: rgb(102, 217, 239);">-ms-user-select</span>: none;
+          <span class="hljs-attribute" style="color: rgb(102, 217, 239);">user-select</span>: none;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">user-drag</span>: none;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">display</span>: flex;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">align-items</span>: center;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">justify-content</span>: center;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">background-image</span>: <span class="hljs-built_in" style="color: rgb(230, 219, 116);">linear-gradient</span>( 135deg, #FAB2FF 10%, #1904E5 100%);
+}
+
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.button</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">transition</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">0.3s</span>;
+}
+
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.title</span>,
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.subtitle</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">font-family</span>: Montserrat, sans-serif;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">font-weight</span>: normal;
+}
+
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.animated</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">transition-duration</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">0.15s</span>;
+}
+
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.container</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">margin</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">0</span> <span class="hljs-number" style="color: rgb(174, 129, 255);">0.5rem</span>;
+}
+
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionBox</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">max-width</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">30rem</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">width</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">35rem</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">min-height</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">30rem</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">background</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">#FAFAFA</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">position</span>: relative;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">display</span>: flex;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">border-radius</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">0.5rem</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">overflow</span>: hidden;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">box-shadow</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">0</span> <span class="hljs-number" style="color: rgb(174, 129, 255);">10px</span> <span class="hljs-number" style="color: rgb(174, 129, 255);">20px</span> <span class="hljs-built_in" style="color: rgb(230, 219, 116);">rgba</span>(0, 0, 0, 0.19), <span class="hljs-number" style="color: rgb(174, 129, 255);">0</span> <span class="hljs-number" style="color: rgb(174, 129, 255);">6px</span> <span class="hljs-number" style="color: rgb(174, 129, 255);">6px</span> <span class="hljs-built_in" style="color: rgb(230, 219, 116);">rgba</span>(0, 0, 0, 0.23);
+}
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionBox</span> <span class="hljs-selector-tag" style="color: rgb(249, 38, 114);">header</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">background-image</span>: <span class="hljs-built_in" style="color: rgb(230, 219, 116);">radial-gradient</span>( circle 369px at -2.9% 12.9%,  rgba(247,234,163,1) <span class="hljs-number" style="color: rgb(174, 129, 255);">0%</span>, <span class="hljs-built_in" style="color: rgb(230, 219, 116);">rgba</span>(236,180,238,0.56) <span class="hljs-number" style="color: rgb(174, 129, 255);">46.4%</span>, <span class="hljs-built_in" style="color: rgb(230, 219, 116);">rgba</span>(163,203,247,1) <span class="hljs-number" style="color: rgb(174, 129, 255);">100.7%</span> );
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">padding</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">1.5rem</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">text-align</span>: center;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">border-bottom</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">1px</span> solid <span class="hljs-built_in" style="color: rgb(230, 219, 116);">rgba</span>(0, 0, 0, 0.1);
+}
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionBox</span> <span class="hljs-selector-tag" style="color: rgb(249, 38, 114);">header</span> <span class="hljs-selector-tag" style="color: rgb(249, 38, 114);">h1</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">font-weight</span>: bold;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">margin-bottom</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">1rem</span> <span class="hljs-meta" style="color: rgb(117, 113, 94);">!important</span>;
+}
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionBox</span> <span class="hljs-selector-tag" style="color: rgb(249, 38, 114);">header</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.progressContainer</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">width</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">60%</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">margin</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">0</span> auto;
+}
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionBox</span> <span class="hljs-selector-tag" style="color: rgb(249, 38, 114);">header</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.progressContainer</span> &gt; <span class="hljs-selector-tag" style="color: rgb(249, 38, 114);">progress</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">margin</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">0</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">border-radius</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">5rem</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">overflow</span>: hidden;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">border</span>: none;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">color</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">#3D5AFE</span>;
+}
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionBox</span> <span class="hljs-selector-tag" style="color: rgb(249, 38, 114);">header</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.progressContainer</span> &gt; <span class="hljs-selector-tag" style="color: rgb(249, 38, 114);">progress</span><span class="hljs-selector-pseudo" style="color: rgb(230, 219, 116);">::-moz-progress-bar</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">background</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">#3D5AFE</span>;
+}
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionBox</span> <span class="hljs-selector-tag" style="color: rgb(249, 38, 114);">header</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.progressContainer</span> &gt; <span class="hljs-selector-tag" style="color: rgb(249, 38, 114);">progress</span><span class="hljs-selector-pseudo" style="color: rgb(230, 219, 116);">::-webkit-progress-value</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">background</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">#3D5AFE</span>;
+}
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionBox</span> <span class="hljs-selector-tag" style="color: rgb(249, 38, 114);">header</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.progressContainer</span> &gt; <span class="hljs-selector-tag" style="color: rgb(249, 38, 114);">p</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">margin</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">0</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">margin-top</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">0.5rem</span>;
+}
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionBox</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.titleContainer</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">text-align</span>: center;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">margin</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">0</span> auto;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">padding</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">1.5rem</span>;
+}
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionBox</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.quizForm</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">display</span>: block;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">white-space</span>: normal;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">height</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">100%</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">width</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">100%</span>;
+}
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionBox</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.quizForm</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.quizFormContainer</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">height</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">100%</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">margin</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">15px</span> <span class="hljs-number" style="color: rgb(174, 129, 255);">18px</span>;
+}
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionBox</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.quizForm</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.quizFormContainer</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.field-label</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">text-align</span>: left;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">margin-bottom</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">0.5rem</span>;
+}
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionBox</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.quizCompleted</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">width</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">100%</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">padding</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">1rem</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">text-align</span>: center;
+}
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionBox</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.quizCompleted</span> &gt; <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.icon</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">color</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">#FF5252</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">font-size</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">5rem</span>;
+}
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionBox</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.quizCompleted</span> &gt; <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.icon</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.is-active</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">color</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">#00E676</span>;
+}
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionBox</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionContainer</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">white-space</span>: normal;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">height</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">100%</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">width</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">100%</span>;
+}
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionBox</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionContainer</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.optionContainer</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">margin-top</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">12px</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">flex-grow</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">1</span>;
+}
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionBox</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionContainer</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.optionContainer</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.option</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">border-radius</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">290486px</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">padding</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">9px</span> <span class="hljs-number" style="color: rgb(174, 129, 255);">18px</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">margin</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">0</span> <span class="hljs-number" style="color: rgb(174, 129, 255);">18px</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">margin-bottom</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">12px</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">transition</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">0.3s</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">cursor</span>: pointer;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">background-color</span>: <span class="hljs-built_in" style="color: rgb(230, 219, 116);">rgba</span>(0, 0, 0, 0.05);
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">color</span>: <span class="hljs-built_in" style="color: rgb(230, 219, 116);">rgba</span>(0, 0, 0, 0.85);
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">border</span>: transparent <span class="hljs-number" style="color: rgb(174, 129, 255);">1px</span> solid;
+}
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionBox</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionContainer</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.optionContainer</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.option</span><span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.is-selected</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">border-color</span>: <span class="hljs-built_in" style="color: rgb(230, 219, 116);">rgba</span>(0, 0, 0, 0.25);
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">background-color</span>: white;
+}
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionBox</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionContainer</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.optionContainer</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.option</span><span class="hljs-selector-pseudo" style="color: rgb(230, 219, 116);">:hover</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">background-color</span>: <span class="hljs-built_in" style="color: rgb(230, 219, 116);">rgba</span>(0, 0, 0, 0.1);
+}
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionBox</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionContainer</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.optionContainer</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.option</span><span class="hljs-selector-pseudo" style="color: rgb(230, 219, 116);">:active</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">transform</span>: <span class="hljs-built_in" style="color: rgb(230, 219, 116);">scaleX</span>(0.9);
+}
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionBox</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionContainer</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionFooter</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">background-image</span>: <span class="hljs-built_in" style="color: rgb(230, 219, 116);">linear-gradient</span>(-225deg, #FFFEFF 0%, #D7FFFE 100%);
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">border-top</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">1px</span> solid <span class="hljs-built_in" style="color: rgb(230, 219, 116);">rgba</span>(0, 0, 0, 0.1);
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">width</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">100%</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">align-self</span>: flex-end;
+}
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionBox</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionContainer</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionFooter</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.pagination</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">margin</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">15px</span> <span class="hljs-number" style="color: rgb(174, 129, 255);">25px</span>;
+}
+
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.pagination</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">display</span>: flex;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">justify-content</span>: space-between;
+}
+
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.button</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">padding</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">0.5rem</span> <span class="hljs-number" style="color: rgb(174, 129, 255);">1rem</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">border</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">1px</span> solid <span class="hljs-built_in" style="color: rgb(230, 219, 116);">rgba</span>(0, 0, 0, 0.25);
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">border-radius</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">5rem</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">margin</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">0</span> <span class="hljs-number" style="color: rgb(174, 129, 255);">0.25rem</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">transition</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">0.3s</span>;
+}
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.button</span><span class="hljs-selector-pseudo" style="color: rgb(230, 219, 116);">:hover</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">cursor</span>: pointer;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">background</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">#ECEFF1</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">border-color</span>: <span class="hljs-built_in" style="color: rgb(230, 219, 116);">rgba</span>(0, 0, 0, 0.25);
+}
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.button</span><span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.is-active</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">background</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">#3D5AFE</span>;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">color</span>: white;
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">border-color</span>: transparent;
+}
+<span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.button</span><span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.is-active</span><span class="hljs-selector-pseudo" style="color: rgb(230, 219, 116);">:hover</span> {
+  <span class="hljs-attribute" style="color: rgb(102, 217, 239);">background</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">#0a2ffe</span>;
+}
+
+@<span class="hljs-keyword" style="color: rgb(249, 38, 114);">media</span> screen and (min-width: <span class="hljs-number" style="color: rgb(174, 129, 255);">769px</span>) {
+  <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionBox</span> {
+    <span class="hljs-attribute" style="color: rgb(102, 217, 239);">align-items</span>: center;
+    <span class="hljs-attribute" style="color: rgb(102, 217, 239);">justify-content</span>: center;
+  }
+  <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionBox</span> <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.questionContainer</span> {
+    <span class="hljs-attribute" style="color: rgb(102, 217, 239);">display</span>: flex;
+    <span class="hljs-attribute" style="color: rgb(102, 217, 239);">flex-direction</span>: column;
+  }
+}
+@<span class="hljs-keyword" style="color: rgb(249, 38, 114);">media</span> screen and (max-width: <span class="hljs-number" style="color: rgb(174, 129, 255);">768px</span>) {
+  <span class="hljs-selector-class" style="color: rgb(166, 226, 46);">.sidebar</span> {
+    <span class="hljs-attribute" style="color: rgb(102, 217, 239);">height</span>: auto <span class="hljs-meta" style="color: rgb(117, 113, 94);">!important</span>;
+    <span class="hljs-attribute" style="color: rgb(102, 217, 239);">border-radius</span>: <span class="hljs-number" style="color: rgb(174, 129, 255);">6px</span> <span class="hljs-number" style="color: rgb(174, 129, 255);">6px</span> <span class="hljs-number" style="color: rgb(174, 129, 255);">0px</span> <span class="hljs-number" style="color: rgb(174, 129, 255);">0px</span>;
+  }
+}</pre>                     </div>
+                     <br>
+                     
+                     <p class="fs-5">
+                        Next, the progress bar has a blue color and a smooth appearance with rounded corners.
+                        the options class styles each quiz option it gives them a rounded border,
+                        some padding, and a smooth transition effect of 0.3 seconds when hovered over.
+                     </p>
+                     
+                     <p class="fs-5">
+                         in the navigation buttons area the pagination class styles the navigation buttons in the footer It adds some margin and centers the buttons.
+                         lastly in the CSS code includes some media queries to adjust the layout for different screen sizes.
+                     </p>
+                     
+                     <p class="fs-5">
+                         If you want to make any changes in this, you can freely modify it without hesitation. You can design it using Tailwind CSS or Bootstrap, whichever you prefer.
+                     </p>
+                     
+                     <br>
+                     
+                     <h2 style="font-family: arial;"><i class="bi bi-filetype-js"></i> JavaScript Explanation</h2>
+                     <br>
+                     
+                     <p class="fs-5">
+                        Now comes the final and most important part, which is JavaScript. Without it, it is not possible to create this vue quiz app. Let's now understand this part.
+                        first it defines a quiz object that contains information about the quiz.
+                     </p>
+                     
+                     <p class="fs-5">
+                         It includes a user property to store the name of the user taking the quiz and a questions array that holds individual question objects.
+                         each question object has two properties a string representing the question itself an array of response options, where each option is an
+                         object and an optional correct property indicating if the response is correct.
+                     </p>
+                     
+                     <p class="fs-5">
+                        The code initializes the userResponses array, It is used to track the user's responses to each question.
+                        after that a new Vue instance is created and bound to the element with the ID app.
+                        The data property of the Vue instance contains the data used in the app.
+                     </p>
+                     
+                     <br>
+                     <div class="col-sm-9">
+                         <pre class="hljs rounded" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(35, 36, 31); color: rgb(248, 248, 242);">var quiz = {
+  user: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Dave"</span>,
+  questions: [
+  {
+    <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Texts that are enclosed on a &lt;title&gt; tag are all displayed in which part of the browser?"</span>,
+    responses: [
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Tab"</span> },
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Title Bar"</span>, correct: <span class="hljs-keyword" style="color: rgb(249, 38, 114);">true</span> },
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Menu Bar"</span> },
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Tool Bar"</span> }] },
+
+
+  {
+    <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Tags that can stand alone are called…"</span>,
+    responses: [
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Empty Tag"</span>, correct: <span class="hljs-keyword" style="color: rgb(249, 38, 114);">true</span> },
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Markup Tag"</span> },
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Container Tag"</span> },
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Standalone Tag"</span> }] },
+
+
+  {
+    <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Which tag is used to create body text in HTML?"</span>,
+    responses: [
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"HEAD"</span> },
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"BODY"</span>, correct: <span class="hljs-keyword" style="color: rgb(249, 38, 114);">true</span> },
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"TITLE"</span> },
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"TEXT"</span> }] },
+
+
+  {
+    <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Outlook Express is _________"</span>,
+    responses: [
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"E-Mail Client"</span>, correct: <span class="hljs-keyword" style="color: rgb(249, 38, 114);">true</span> },
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Browser"</span> },
+    {
+      <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Search Engine"</span> },
+
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"None of the above"</span> }] },
+
+
+  {
+    <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"What is a search engine?"</span>,
+    responses: [
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"A hardware component "</span> },
+    {
+      <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"A machinery engine that search data"</span> },
+
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"A web site that searches anything"</span>, correct: <span class="hljs-keyword" style="color: rgb(249, 38, 114);">true</span> },
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"A program that searches engines"</span> }] },
+
+
+  {
+    <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>:
+    <span class="hljs-string" style="color: rgb(230, 219, 116);">"What does the .com domain represents?"</span>,
+    responses: [
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Network"</span> },
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Education"</span> },
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Commercial"</span>, correct: <span class="hljs-keyword" style="color: rgb(249, 38, 114);">true</span> },
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"None of the above"</span> }] },
+
+
+  {
+    <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"In Satellite based communication, VSAT stands for? "</span>,
+    responses: [
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">" Very Small Aperture Terminal"</span>, correct: <span class="hljs-keyword" style="color: rgb(249, 38, 114);">true</span> },
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Varying Size Aperture Terminal "</span> },
+    {
+      <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Very Small Analog Terminal"</span> },
+
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"None of the above"</span> }] },
+
+
+  {
+    <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"What is the full form of TCP/IP? "</span>,
+    responses: [
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Telephone call protocol / international protocol"</span> },
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Transmission control protocol / internet protocol"</span>, correct: <span class="hljs-keyword" style="color: rgb(249, 38, 114);">true</span> },
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Transport control protocol / internet protocol "</span> },
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"None of the above"</span> }] },
+
+
+  {
+    <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>:
+    <span class="hljs-string" style="color: rgb(230, 219, 116);">"What is the full form of HTML?"</span>,
+    responses: [
+    {
+      <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Hyper text marking language"</span> },
+
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Hyphenation text markup language "</span> },
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Hyper text markup language"</span>, correct: <span class="hljs-keyword" style="color: rgb(249, 38, 114);">true</span> },
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Hyphenation test marking language"</span> }] },
+
+
+  {
+    <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"\"Yahoo\", \"Infoseek\" and \"Lycos\" are _________?"</span>,
+    responses: [
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Browsers "</span> },
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"Search Engines"</span>, correct: <span class="hljs-keyword" style="color: rgb(249, 38, 114);">true</span> },
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"News Group"</span> },
+    { <span class="hljs-built_in" style="color: rgb(230, 219, 116);">text</span>: <span class="hljs-string" style="color: rgb(230, 219, 116);">"None of the above"</span> }] }] },
+
+
+
+
+userResponseSkelaton = <span class="hljs-keyword" style="color: rgb(249, 38, 114);">Array</span>(quiz.questions.length).<span class="hljs-built_in" style="color: rgb(230, 219, 116);">fill</span>(<span class="hljs-keyword" style="color: rgb(249, 38, 114);">null</span>);
+
+var app = <span class="hljs-keyword" style="color: rgb(249, 38, 114);">new</span> Vue({
+  el: <span class="hljs-string" style="color: rgb(230, 219, 116);">"#app"</span>,
+  data: {
+    quiz: quiz,
+    questionIndex: <span class="hljs-number" style="color: rgb(174, 129, 255);">0</span>,
+    userResponses: userResponseSkelaton,
+    isActive: <span class="hljs-keyword" style="color: rgb(249, 38, 114);">false</span> },
+
+  filters: {
+    charIndex: function (i) {
+      <span class="hljs-keyword" style="color: rgb(249, 38, 114);">return</span> <span class="hljs-keyword" style="color: rgb(249, 38, 114);">String</span>.fromCharCode(<span class="hljs-number" style="color: rgb(174, 129, 255);">97</span> + i);
+    } },
+
+  methods: {
+    restart: function () {
+      <span class="hljs-keyword" style="color: rgb(249, 38, 114);">this</span>.questionIndex = <span class="hljs-number" style="color: rgb(174, 129, 255);">0</span>;
+      <span class="hljs-keyword" style="color: rgb(249, 38, 114);">this</span>.userResponses = <span class="hljs-keyword" style="color: rgb(249, 38, 114);">Array</span>(<span class="hljs-keyword" style="color: rgb(249, 38, 114);">this</span>.quiz.questions.length).<span class="hljs-built_in" style="color: rgb(230, 219, 116);">fill</span>(<span class="hljs-keyword" style="color: rgb(249, 38, 114);">null</span>);
+    },
+    selectOption: function (index) {
+      Vue.<span class="hljs-built_in" style="color: rgb(230, 219, 116);">set</span>(<span class="hljs-keyword" style="color: rgb(249, 38, 114);">this</span>.userResponses, <span class="hljs-keyword" style="color: rgb(249, 38, 114);">this</span>.questionIndex, index);
+      <span class="hljs-comment" style="color: rgb(117, 113, 94);">//console.log(this.userResponses);</span>
+    },
+    next: function () {
+      <span class="hljs-keyword" style="color: rgb(249, 38, 114);">if</span> (<span class="hljs-keyword" style="color: rgb(249, 38, 114);">this</span>.questionIndex &lt; <span class="hljs-keyword" style="color: rgb(249, 38, 114);">this</span>.quiz.questions.length)
+      <span class="hljs-keyword" style="color: rgb(249, 38, 114);">this</span>.questionIndex++;
+    },
+
+    prev: function () {
+      <span class="hljs-keyword" style="color: rgb(249, 38, 114);">if</span> (<span class="hljs-keyword" style="color: rgb(249, 38, 114);">this</span>.quiz.questions.length &gt; <span class="hljs-number" style="color: rgb(174, 129, 255);">0</span>) <span class="hljs-keyword" style="color: rgb(249, 38, 114);">this</span>.questionIndex--;
+    },
+    <span class="hljs-comment" style="color: rgb(117, 113, 94);">// Return "true" count in userResponses</span>
+    score: function () {
+      var score = <span class="hljs-number" style="color: rgb(174, 129, 255);">0</span>;
+      <span class="hljs-keyword" style="color: rgb(249, 38, 114);">for</span> (let i = <span class="hljs-number" style="color: rgb(174, 129, 255);">0</span>; i &lt; <span class="hljs-keyword" style="color: rgb(249, 38, 114);">this</span>.userResponses.length; i++) {
+        <span class="hljs-keyword" style="color: rgb(249, 38, 114);">if</span> (
+        typeof <span class="hljs-keyword" style="color: rgb(249, 38, 114);">this</span>.quiz.questions[i].responses[
+        <span class="hljs-keyword" style="color: rgb(249, 38, 114);">this</span>.userResponses[i]] !==
+        <span class="hljs-string" style="color: rgb(230, 219, 116);">"undefined"</span> &amp;&amp;
+        <span class="hljs-keyword" style="color: rgb(249, 38, 114);">this</span>.quiz.questions[i].responses[<span class="hljs-keyword" style="color: rgb(249, 38, 114);">this</span>.userResponses[i]].correct)
+        {
+          score = score + <span class="hljs-number" style="color: rgb(174, 129, 255);">1</span>;
+        }
+      }
+      <span class="hljs-keyword" style="color: rgb(249, 38, 114);">return</span> score;
+
+      <span class="hljs-comment" style="color: rgb(117, 113, 94);">//return this.userResponses.filter(function(val) { return val }).length;</span>
+    } } });</pre>                     </div>
+                     <br>
+                     <p class="fs-5">
+                        Also, The Vue instance defines several methods that provide functionality to this quiz app.
+                        like the restart method this method resets the quiz by setting the questionIndex back to 0
+                        and clearing the userResponses array, effectively restarting the quiz.
+                        and the selectOption method this method is called when the user selects an option for a question it updates the userResponses array.
+                        also the next and prev methods these methods increments and decrements the questionIndex.
+                     </p>
+                     
+                     <p class="fs-5">
+                        Mainly, this JavaScript code sets up a Vue.js app to handle a quiz. It defines the quiz data, tracks user responses, and provides methods to navigate through the questions.
+                     </p>
+                     
+                     <p class="fs-5">
+                         We have made every effort from our end to help you understand how this vue js quiz application works, but despite that, if you have any remaining queries, you can absolutely contact us.
+                     </p>
+                     <br>
+                     
+                     <p class="fs-5 mt-4 text-center text-success">
+                        We are grateful for your time and attention, and we trust that you have found the project to be interesting.
+                     </p>
+                 </div>
+                 <hr>
+                 <br>
+                 <br> 
+                 <div class="col-sm-6 mx-auto">
+                     <h3 class="text-center">Video of the Project</h3>
+                     <!--w-100% h-250--><iframe width="100%" height="250" src="https://www.youtube.com/embed/gs3mZf0PF1k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                 </div>
+                 <div class="card border-light col-sm-4 mx-auto">
+                      <div class="card-header border">See also</div>
+                      <br>
+                   <div class="card-body">
+                      <h5 class="card-title"><a href="https://bytewebster.com/javascriptprojects/linear-gradient-colors-generator-using-html-css-and-javascript" class="text-dark text-decoration-none">
+                          <i class="bi bi-caret-right-fill"></i> Linear Gradient Colors Generator</a></h5>
+                      <div style="border-top: 1px solid black"></div>
+                      <br>
+                      <h5 class="card-title"><a href="https://bytewebster.com/javascriptprojects/javascript-text-to-speech-generator-with-voice-customization" class="text-dark text-decoration-none">
+                          <i class="bi bi-caret-right-fill"></i> JavaScript Text To Speech Generator</a></h5>
+                      <div style="border-top: 1px solid black"></div>
+                      <br>
+                      <h5 class="card-title"><a href="https://bytewebster.com/javascriptprojects/build-a-custom-captcha-using-html-css-and-javascript" class="text-dark text-decoration-none">
+                          <i class="bi bi-caret-right-fill"></i>  Build A JavaScript Custom Captcha</a></h5>
+                      <div style="border-top: 1px solid black"></div>
+                      <br>
+                      <h5 class="card-title"><a href="https://bytewebster.com/javascriptprojects/multiple-images-uploader-with-preview-using-react" class="text-dark text-decoration-none">
+                          <i class="bi bi-caret-right-fill"></i> Multiple File Uploader with Preview Feature</a></h5>
+                   </div>
+                 </div>
+                 <div class=" mt-5 col-sm-12 mx-auto mb-5">
+                     <h2 class="quizhead"><b>Take This Short Survey!</b></h2>
+                      <div id="quizWrap"></div>
+                 </div>
+          </div>
+          <br>
+          <div class="col-sm-12 mx-auto" id="downloadbtn">
+            <h3> Download Source Code Files</h3>
+            <p class="fs-5">
+                From here You can download the source code file of this Vue.js Quiz Application with Progress Bar.
+            <br>
+             If you are just starting in web development, these snippets will be useful. We would appreciate it if you would share our blog posts with other like-minded people.
+            </p>
+          </div>
+          <br>
+          <div class="col-sm-4 mx-auto text-center">
+            <div class="download-container">
+              <a class="download-btn"><i class="bi bi-download"></i> Download Source Code</a>
+               <div class="countdown"></div>
+                 <div class="pleaseWait-text">Please wait ...</div>
+                 <div class="manualDownload-text">
+                If the download didn't start automatically, <a class="manualDownload-link" target="_top">click here</a>
+              </div>
+            </div>  
+          </div>
+          
+          <div class="mt-5" style="border-top: 4px solid purple"></div>
+  <div class="col-sm-4 mx-auto text-center">
+      <h3 class="text-center text-success mt-2">ByteWebster Play and Win Offer.</h3>
+    <img width="350" class="img-thumbnail mt-2" height="180" src="https://www.bytewebster.com/javascriptprojects/uploads/images/testimage.png">
+    <p class="fs-6 mt-2 text-center">PLAY A SIMPLE GAME AND WIN PREMIUM WEB DESIGNS WORTH UPTO $100 FOR FREE.</p>
+        <a class="playbtn" href="https://bytewebster.com/javascriptprojects/bw-offer/play-and-win-rewards">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          PLAY FOR FREE
+        </a>
+  </div>
+<div style="border-top: 4px solid purple"></div>          
+      </section>
+      <br>
+      <br>
+      <br>
+      <br>
+      <hr>
+      
+      <!-- Contact starts -->
+      <section id="contact" class="contact section-padding">
+          <div class="container mt-5 mb-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-header text-center pb-5">
+                        <h2>Connect With Us</h2>
+                        <p>we would like to keep in touch with you..... Register Here.</p>
+                        <h3>
+                            <a href="https://www.bytewebster.com/register-here" target="_blank" class="text-decoration-none btn btn-success rounded-pill"><i class="bi bi-people-fill"></i> JOIN US</a>
+                            <a href="https://t.me/bytewebster" target="_blank" class="text-decoration-none btn btn-info text-light rounded-pill"><i class="bi bi-telegram"></i> JOIN TELEGRAM</a>
+                        </h3>
+  
+                    </div>
+                </div>
+            </div>
+      </section>
+      <!-- contact ends -->
+      
+      <!-- footer starts -->
+      <footer class="bg-dark p-2  text-center">
+          <div class="container">
+              <a class="navbar-brand text-success" href="https://www.bytewebster.com/"><span class="text-primary">BYTE</span>WEBSTER</a>
+              <p class="text-white">&copy; <script>document.write(new Date().getFullYear())</script> All Rights Reserved By BYTE WEBSTER</p>
+              
+          </div>
+      </footer>
+      <!-- footer ends -->      
+      <script>
+          const download = document.querySelector('.download-btn');
+const countdown = document.querySelector('.countdown');
+const pleaseWaitText = document.querySelector('.pleaseWait-text');
+const manualDownloadText = document.querySelector('.manualDownload-text');
+const manualDownloadLink = document.querySelector('.manualDownload-link');
+var timeLeft = 50;
+
+download.addEventListener('click', () => {
+  download.style.display = "none";
+  countdown.innerHTML = `Download will begin automatically in <span>${timeLeft}</span> seconds`;
+  
+  var downloadTimer = setInterval(function timeCount() {
+    timeLeft--;
+    countdown.innerHTML = `Download will begin automatically in <span>${timeLeft}</span> seconds`;
+    
+    if (timeLeft <= 0) {
+      clearInterval(downloadTimer);
+
+      pleaseWaitText.style.display = "block";
+      let download_href = "https://drive.google.com/uc?export=download&id=1TRNenOPK-gPLlQ-AGtCuA6Pg-84LAxUB";
+
+      window.location.href = download_href;
+      manualDownloadLink.href = download_href; 
+
+
+      setTimeout(() => {
+        pleaseWaitText.style.display = "none";
+        manualDownloadText.style.display = "block";
+      }, 1000);
+    }
+  }, 1000);
+});
+      </script>
+</body>
+</html>
