@@ -207,3 +207,6 @@ body{
 .im{
     margin-top: 10px!important;
 }
+.small{
+    width: 80%;
+}
