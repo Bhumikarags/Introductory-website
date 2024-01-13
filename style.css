@@ -730,10 +730,10 @@ footer span a:hover{
 @media (max-width: 690px) {
     .home{
     display: flex;
-    background:black;
+    /*background:lack;*/
     height: 100vh;
     width: 100%;
-    color: #fff;
+    color: black;
     min-height: 500px;
     background-size: cover;
     background-attachment:unset;
@@ -760,6 +760,17 @@ footer span a:hover{
     .home .home-content .text-2{
         font-size: 50px;
     }
+    .home{
+    display: flex;
+    /*background:black;*/
+    height: 100vh;
+    width: 100%;
+    color: black;
+    min-height: 500px;
+    background-size: cover;
+    background-attachment:unset;
+    
+}
     .home .home-content .text-3{
         font-size: 27px;
     }
