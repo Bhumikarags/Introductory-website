@@ -730,13 +730,14 @@ footer span a:hover{
 @media (max-width: 690px) {
     .home{
     display: flex;
-    /*background:lack;*/
+    background:black!important;
+    color: #fff!important;
     height: 100vh;
     width: 100%;
-    color: black;
+    /*color: black;*/
     min-height: 500px;
-    background-size: cover;
-    background-attachment:unset;
+    /*background-size: cover;*/
+    /*background-attachment:unset;*/
     
 }
     .max-width{
@@ -762,13 +763,13 @@ footer span a:hover{
     }
     .home{
     display: flex;
-    /*background:black;*/
+    background:black!important;
     height: 100vh;
     width: 100%;
-    color: black;
+    color: #fff!important;
     min-height: 500px;
-    background-size: cover;
-    background-attachment:unset;
+    /*background-size: cover;*/
+    /*background-attachment:unset;*/
     
 }
     .home .home-content .text-3{
