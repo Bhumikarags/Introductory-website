@@ -233,6 +233,7 @@ section .title::after{
     width: 45%;
     padding: 81px;
     text-align: justify;
+    hyphens: auto;
     background: #000;
     border-radius:5px;
     box-shadow: 2px 2px 5px grey;
@@ -243,18 +244,18 @@ section .title::after{
 
 .about .about-content .left h2{
     color: crimson;
-    margin: top 10px !important;;
+    margin: top 10px !important;
    
 }
 .about .about-content .left p{
     color: #f1f1f1;
 }
-.about .about-content .left img{
+/*.about .about-content .left img{
     height: 400px;
     width: 400px;
     object-fit: cover;
     border-radius: 6px;
-}
+}*/
 .about .about-content .right{
     width: 55%;
     padding: 20px;
@@ -645,12 +646,20 @@ footer span a:hover{
         height: 350px;
         width: 350px;
     }
+    .about .about-content .left h2{
+        font-size: 20px;
+        word-spacing: 2;
+        text-align: center;
+        hyphens: auto;
+    }
+    
 }
 
 @media (max-width: 991px) {
     .max-width{
         padding: 0 50px;
     }
+
 }
 @media (max-width: 947px)
 {
@@ -700,13 +709,10 @@ footer span a:hover{
     }
     .about .about-content .column{
         width: 100%;
-        
+
     }
-    .about .about-content .left{
-        display: flex;
-        justify-content: center;
-        margin: 0 auto 60px;
-    }
+    
+    /* */
     .about .about-content .right{
         flex: 100%;
     }
@@ -722,6 +728,17 @@ footer span a:hover{
 }
 
 @media (max-width: 690px) {
+    .home{
+    display: flex;
+    background:url("images/bg.avif") no-repeat right;
+    height: 100vh;
+    width: 100%;
+    color: #fff;
+    min-height: 500px;
+    background-size: cover;
+    background-attachment:unset;
+    
+}
     .max-width{
         padding: 0 23px;
     }
