@@ -730,18 +730,26 @@ footer span a:hover{
 @media (max-width: 690px) {
     .home{
     display: flex;
-    background:black!important;
-    color: #fff!important;
+    background:white;
+    
     height: 100vh;
     width: 100%;
-    /*color: black;*/
+    color: black;
     min-height: 500px;
-    /*background-size: cover;*/
-    /*background-attachment:unset;*/
+   
     
 }
+.navbar {
+    background: black;
+    padding: 10px;
+    color: white;
+}
+.navbar .logo{
+    
+    color: white;
+}
 .navbar .max-width .logo a{
-    color: black;
+    color: whi];
 }
     .max-width{
         padding: 0 23px;
@@ -766,13 +774,12 @@ footer span a:hover{
     }
     .home{
     display: flex;
-    background:black!important;
+    background:white
     height: 100vh;
     width: 100%;
-    color: #fff!important;
+    color: black;!important;
     min-height: 500px;
-    /*background-size: cover;*/
-    /*background-attachment:unset;*/
+ 
     
 }
     .home .home-content .text-3{
