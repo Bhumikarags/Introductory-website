@@ -740,6 +740,9 @@ footer span a:hover{
     /*background-attachment:unset;*/
     
 }
+.navbar .max-width .logo a{
+    color: black;
+}
     .max-width{
         padding: 0 23px;
     }
